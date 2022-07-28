@@ -49,6 +49,7 @@
     <Compile Include="Controls\MenuItemService.cs" />
     <Compile Include="Controls\ContainerItemsControl.cs" />
     <Compile Include="Controls\NoInheritanceContainer.cs" />
+    <Compile Include="Controls\TextBlockService.cs" />
     <Compile Include="Controls\TreeViewItemService.cs" />
     <Compile Include="Controls\WatermarkAdorner.cs" />
     <Compile Include="Controls\WatermarkService.cs" />
