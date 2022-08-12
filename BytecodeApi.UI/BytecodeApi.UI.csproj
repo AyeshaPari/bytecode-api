@@ -92,6 +92,7 @@
     <Compile Include="Dialogs\FileDialogs.cs" />
     <Compile Include="Dialogs\IconPickerDialog.cs" />
     <Compile Include="Dialogs\MessageBoxes.cs" />
+    <Compile Include="Effects\InvertEffect.cs" />
     <Compile Include="Effects\GrayscaleEffect.cs" />
     <Compile Include="Data\KeyboardShortcut.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FileGrayscaleEffect.ps" />
+    <None Include="Resources\FileInvertEffect.ps" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
