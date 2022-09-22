@@ -42,6 +42,55 @@ namespace BytecodeApi.Data
 		}
 
 		/// <summary>
+		/// Returns a formatted <see cref="string" /> of this <see cref="Money" /> value.
+		/// </summary>
+		/// <returns>
+		/// A formatted <see cref="string" /> representing this instance.
+		/// </returns>
+		public string Format()
+		{
+			return Format(2, true);
+		}
+		/// <summary>
+		/// Returns a formatted <see cref="string" /> of this <see cref="Money" /> value using the specified formatting parameters.
+		/// </summary>
+		/// <param name="decimals">The number of decimals to round the result to. The default value is 2.</param>
+		/// <param name="thousandsSeparator"><see langword="true" /> to use a thousands separator.</param>
+		/// <returns>
+		/// A formatted <see cref="string" /> representing this instance.
+		/// </returns>
+		public string Format(int decimals, bool thousandsSeparator)
+		{
+			return Format(decimals, thousandsSeparator, true);
+		}
+		/// <summary>
+		/// Returns a formatted <see cref="string" /> of this <see cref="Money" /> value using the specified formatting parameters.
+		/// </summary>
+		/// <param name="decimals">The number of decimals to round the result to. The default value is 2.</param>
+		/// <param name="thousandsSeparator"><see langword="true" /> to use a thousands separator.</param>
+		/// <param name="includeCurrency"><see langword="true" /> to append the currency.</param>
+		/// <returns>
+		/// A formatted <see cref="string" /> representing this instance.
+		/// </returns>
+		public string Format(int decimals, bool thousandsSeparator, bool includeCurrency)
+		{
+			Check.ArgumentOutOfRangeEx.GreaterEqual0(decimals, nameof(decimals));
+			Check.ArgumentOutOfRange(decimals <= 15, nameof(decimals), "The number of decimals must be in range of 0...15.");
+
+			string format = Math
+				.Round(Amount, decimals)
+				.ToStringInvariant((thousandsSeparator ? "#,#" : "#") + (decimals > 0 ? "." + '0'.Repeat(decimals) : null))
+				.Swap('.', ',');
+
+			if (includeCurrency)
+			{
+				format += " " + Currency;
+			}
+
+			return format;
+		}
+
+		/// <summary>
 		/// Compares this instance to a specified <see cref="Money" /> and returns a comparison of their relative values.
 		/// Both values must have matching currencies.
 		/// </summary>
@@ -79,17 +128,6 @@ namespace BytecodeApi.Data
 		public override string ToString()
 		{
 			return $"{Amount} {Currency}";
-		}
-		/// <summary>
-		/// Returns a <see cref="string" /> that represents this instance using the invariant culture.
-		/// <para>Example: 12.34 USD</para>
-		/// </summary>
-		/// <returns>
-		/// A <see cref="string" /> that represents this instance.
-		/// </returns>
-		public string ToStringInvariant()
-		{
-			return $"{Amount.ToStringInvariant()} {Currency}";
 		}
 		/// <summary>
 		/// Determines whether the specified <see cref="object" /> is equal to this instance.
