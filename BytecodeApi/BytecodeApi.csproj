@@ -60,6 +60,10 @@
     <Compile Include="Comparers\DelegateEqualityComparer.cs" />
     <Compile Include="Comparers\DelegateComparer.cs" />
     <Compile Include="Comparers\SpecialStringComparer.cs" />
+    <Compile Include="Data\CurrencyConversion.cs" />
+    <Compile Include="Data\CurrencyConverter.cs" />
+    <Compile Include="Data\Money.cs" />
+    <Compile Include="Data\Currency.cs" />
     <Compile Include="Data\ObjectEventArgs.cs" />
     <Compile Include="Data\ObjectEventHandler.cs" />
     <Compile Include="Extensions\Collections\BitArrayExtensions.cs" />
