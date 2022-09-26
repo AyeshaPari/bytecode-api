@@ -14,7 +14,7 @@ namespace BytecodeApi.UI.Controls
 		/// </summary>
 		public static readonly DependencyProperty TextTrimmingProperty = DependencyProperty.RegisterAttached("TextTrimming", typeof(TextTrimming), typeof(ContentControl), new FrameworkPropertyMetadata(default(TextTrimming), FrameworkPropertyMetadataOptions.Inherits, Changed));
 		/// <summary>
-		/// Returns the <see cref="TextBlock" />.<see cref="TextBlock.TextTrimming" /> property.
+		/// Returns the <see cref="TextBlock.TextTrimming" /> property.
 		/// </summary>
 		/// <param name="dependencyObject">The <see cref="TextBlock" /> to check.</param>
 		/// <returns>
