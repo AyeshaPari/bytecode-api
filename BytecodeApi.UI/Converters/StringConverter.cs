@@ -36,6 +36,7 @@ namespace BytecodeApi.UI.Converters
 			switch (Method)
 			{
 				case StringConverterMethod.Concat: return value + parameter;
+				case StringConverterMethod.ConcatBefore: return parameter + value;
 				case StringConverterMethod.Trim: return value?.Trim();
 				case StringConverterMethod.TrimStart: return value?.TrimStart();
 				case StringConverterMethod.TrimStartString: return value?.TrimStartString(parameter?.ToString());

@@ -10,6 +10,10 @@
 		/// </summary>
 		Concat,
 		/// <summary>
+		/// Concatenates the parameter before the value and returns the combined <see cref="string" />.
+		/// </summary>
+		ConcatBefore,
+		/// <summary>
 		/// Removes all leading and trailing white-space characters from the <see cref="string" /> value.
 		/// </summary>
 		Trim,
