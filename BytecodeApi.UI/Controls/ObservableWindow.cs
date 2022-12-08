@@ -13,7 +13,6 @@ namespace BytecodeApi.UI.Controls
 	/// </summary>
 	public class ObservableWindow : Window, INotifyPropertyChanged, INotifyPropertyChanging
 	{
-		private bool IsLoadedOnce;
 		/// <summary>
 		/// Occurs when a property value is changing and is typically used by a <see cref="DependencyObject" />.
 		/// </summary>
@@ -36,10 +35,13 @@ namespace BytecodeApi.UI.Controls
 		}
 		private void ObservableWindow_Loaded(object sender, RoutedEventArgs e)
 		{
-			if (!IsLoadedOnce)
+			try
 			{
-				IsLoadedOnce = true;
 				LoadedOnce?.Invoke(sender, e);
+			}
+			finally
+			{
+				Loaded -= ObservableWindow_Loaded;
 			}
 		}
 

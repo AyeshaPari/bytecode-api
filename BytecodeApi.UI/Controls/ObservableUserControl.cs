@@ -14,7 +14,6 @@ namespace BytecodeApi.UI.Controls
 	/// </summary>
 	public class ObservableUserControl : UserControl, INotifyPropertyChanged, INotifyPropertyChanging
 	{
-		private bool IsLoadedOnce;
 		/// <summary>
 		/// Occurs when a property value is changing and is typically used by a <see cref="DependencyObject" />.
 		/// </summary>
@@ -37,10 +36,13 @@ namespace BytecodeApi.UI.Controls
 		}
 		private void ObservableUserControl_Loaded(object sender, RoutedEventArgs e)
 		{
-			if (!IsLoadedOnce)
+			try
 			{
-				IsLoadedOnce = true;
 				LoadedOnce?.Invoke(sender, e);
+			}
+			finally
+			{
+				Loaded -= ObservableUserControl_Loaded;
 			}
 		}
 
