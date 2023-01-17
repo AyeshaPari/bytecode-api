@@ -60,6 +60,8 @@
     <Compile Include="Comparers\DelegateEqualityComparer.cs" />
     <Compile Include="Comparers\DelegateComparer.cs" />
     <Compile Include="Comparers\SpecialStringComparer.cs" />
+    <Compile Include="IndexedProperty.cs" />
+    <Compile Include="ReadOnlyIndexedProperty.cs" />
     <Compile Include="Data\CurrencyConversion.cs" />
     <Compile Include="Data\CurrencyConverter.cs" />
     <Compile Include="Data\Money.cs" />
